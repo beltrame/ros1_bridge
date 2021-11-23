@@ -182,6 +182,7 @@ void update_bridge(
     bridge.ros2_type_name = ros2_type_name;
 
     auto ros2_publisher_qos = rclcpp::QoS(rclcpp::KeepLast(10));
+    ros2_publisher_qos.best_effort();
     if (topic_name == "/tf_static") {
       ros2_publisher_qos.keep_all();
       ros2_publisher_qos.transient_local();
